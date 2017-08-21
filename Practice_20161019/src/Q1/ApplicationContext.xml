@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+                           http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/context 
+                           http://www.springframework.org/schema/context/spring-context.xsd">
+
+<context:annotation-config></context:annotation-config>
+
+ 	<bean id="customerList" class="Q1.CustomerList">
+ 		<property name="lists">
+	 		<list>
+	 			<value>김유신</value>
+	 			<value>홍길동</value>
+	 			<value>유관순</value>
+	 		</list>
+	 	</property>
+ 	</bean>
+ 	<bean id="productList" class="Q1.ProductList">
+ 	<property name="maps">
+			<map>
+				<entry>
+					<key>
+						<value>1</value>
+					</key>
+					<value>컴퓨터</value>
+				</entry>
+				<entry>
+					<key>
+						<value>2</value>
+					</key>
+					<value>노트북</value>
+				</entry>
+				<entry>
+					<key>
+						<value>3</value>
+					</key>
+					<value>냉장고</value>
+				</entry>
+			</map>
+		</property>
+ 	</bean>
+ 	<bean id="electronicStore" class="Q1.ElectronicStore"></bean>
+
+</beans>

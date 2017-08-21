@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<!--
+		MyBean mybean=new MyBean();
+		MyBean mybean2=new MyBean("kglim");
+		Singleton single=Singleton.getInstance();
+		Singleton single2=Singleton.getInstance(); 
+	 -->
+	<!-- IOC 컨테이너 안에서 기본값은 싱글톤으로 관리됨 -->
+	<bean id="mybean" class="DI_05_Spring.MyBean">
+	 	<constructor-arg value="kglim" />
+	</bean>
+	<!-- 
+		xml에서의 싱글톤 구현
+		Singleton.getInstance();
+		3.x버전: factory-method="getInstance" 강제
+		4.x버전: 안써도 내부에서 자동으로, 쓰는게 가독성을 위해 좋지 않을까...
+	-->
+	<bean id="single" class="DI_05_Spring.Singleton"
+		factory-method="getInstance">
+	</bean>
+</beans>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+                           http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/context 
+                           http://www.springframework.org/schema/context/spring-context.xsd">
+
+<context:annotation-config></context:annotation-config>
+
+<!-- 공통작업: 모든 컨트롤러가 공통으로 하는 작업 ex)resolver -->
+<!-- ViewResolver 구현: view에 대한 설정담당 클래스 -->
+<bean id="internalResourceViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+	<!-- <property name="prefix">
+		<value>/WEB-INF/view/</value>
+	</property> -->
+	<property name="suffix">
+		<value>.jsp</value>
+	</property>
+</bean>
+
+<!-- 게시판 목록보기 -->
+<bean id="noticeDao" class="dao.NoticeDao"></bean>
+<bean id="customerController" class="ncontroller.CustomerController"></bean>
+
+<!-- 파일 업로드 -->
+<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+	<property name="maxUploadSize" value="10485760"></property>
+</bean>
+
+</beans> 

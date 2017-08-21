@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<!-- 
+		ProtocolHandlerFactory factory=new ProtocolHandlerFactory();
+		
+		Map<String, ProtocolHandler> map=new HashMap<String, ProtocolHandler>();
+		map.put("rest", new RestHandler());
+		map.put("Rss", new RssHandler());
+		
+		factory.setHandlers(map);
+	 -->
+	 
+	<bean id="factory" class="DI_09_Spring.ProtocolHandlerFactory">	
+		<property name="handlers">
+			<map>
+				<entry>
+					<key>
+						<value>rest</value>
+					</key>
+					<bean class="DI_09_Spring.RestHandler"></bean>
+				</entry>
+				<entry>
+					<key>
+						<value>Rss</value>
+					</key>
+					<bean class="DI_09_Spring.RssHandler"></bean>
+				</entry>
+			</map>
+		</property>
+	</bean>
+	 
+</beans>

@@ -1,0 +1,7 @@
+게시판 테이블 Article
+DTO(Article)
+DAO(ArticleDAO): 인터페이스로 ArticleDAO
+	구현하는 DAO
+		oracle
+		mysql
+Service(WriteAriticleService)

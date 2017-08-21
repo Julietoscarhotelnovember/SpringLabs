@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+                           http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/context 
+                           http://www.springframework.org/schema/context/spring-context.xsd">
+
+		
+<bean id="calc" class="AOP_Spring_03.NewCalc"></bean>
+<bean id="logPrintAroundAdvice" class="AOP_Spring_03.LogPrintAroundAdvice"></bean>
+<bean id="proxy" class="org.springframework.aop.framework.ProxyFactoryBean">
+	<property name="proxyInterfaces">
+		<list>
+			<value>AOP_Spring_03.Calc</value><!-- 인터페이스는 bean으로 못만들어서 이렇게 -->
+		</list>
+	</property>
+	<property name="target" ref="calc"></property>
+	<property name="interceptorNames">
+		<list>
+			<value>logPrintAroundAdvice</value><!-- 독특하게 ref가 아니라 value에 bean 객체의 id값 기술 -->
+		</list>
+	</property>
+</bean>
+
+
+</beans> 

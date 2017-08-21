@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+                           http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/context 
+                           http://www.springframework.org/schema/context/spring-context.xsd">
+<!-- 게시판 상세보기 -->
+<bean name="/customer/noticeDetail.htm" class="controllers.customer.NoticeDetailController">
+	<property name="noticedao" ref="noticeDao"></property>
+</bean>
+<!-- 게시판 목록보기 -->
+<bean name="/customer/notice.htm" class="controllers.customer.NoticeController">
+	<property name="noticedao" ref="noticeDao"></property>
+</bean>
+<!-- dao객체 -->
+<bean id="noticeDao" class="dao.NoticeDao"></bean>
+
+</beans> 

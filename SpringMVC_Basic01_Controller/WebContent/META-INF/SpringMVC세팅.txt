@@ -1,0 +1,70 @@
+[Spring MVC 세팅하기]
+
+1.web project 생성(톰캣, 에디터 utf-8)
+
+2.Spring Framework(jar 추가)
+	-core, context, beans, expression, aop
+	-의존: logging
+	-SpringMVC(web)
+	-Spring-Web(jar)
+	-Spring-Webmvc(jar)
+	-to WEB-INF/lib에 넣기
+
+3.web.xml설정
+	-org.springframework.web.servlet.DispatcherServlet
+	-DispatcherServlet 설정(스프링에서 FrontController 제공)
+	-web.xml > url-pattern 설정: *.html, *.action, *.do 등에 대한 DispatcherServlet 설정
+
+	기존 model2 기반 mvc
+	-패턴 잡기: @WebServlet("*.do")
+	-요청판단: command(?cmd=list), url(list.do) 
+	
+	스프링에서도 동일하다
+	-DispatcherServlet을 web.xml에 등록
+	<servlet>
+  		<servlet-name>spring</servlet-name>
+  		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+  	</servlet>
+  	<servlet-mapping>
+	  	<servlet-name>spring</servlet-name>
+  		<url-pattern>*.htm</url-pattern>
+  	</servlet-mapping>
+  	
+4.DispatcherServlet에 대한 설정을 담당하는 xml 만들기(DI작업)
+	-HandlerMapping 작업은 xml을 통해 이루어진다
+	
+	***주의사항***
+	1.규칙
+		-web.xml에서 <servlet-name>spring</servlet-name> 이면
+		-spring-servlet.xml 이렇게 이름을 지으면 자동 연결
+		-spring-servlet.xml에서 DispatcherServlet 구성하는 DI작업을 진행
+	2.DispatcherServlet이 사용자의 요청을 판단하고 어떤 컨트롤러를 사용할지 결정한다
+		-spring-servlet.xml 작업	
+		-Controller 만들기(HelloController.java)
+	3.spring-servlet.xml에서 bean 생성하고 주입
+		-<bean name="/hello.htm" class="kr.or.kosta.HelloController"></bean>
+		
+	실습) 1. 요청 : http://localhost:8090/SpringMVC_Basic01_Controller/hello.htm
+   	   	 2. url-pattern : *.htm 에 의해서 DispatcherServlet 동작
+   	   	 3. DispatcherServlet 의 DI 작업을  하는 spring-servlet.xml 에서
+   	   	   Handler-Mapping 작업을 통해 해당되는 controller ...
+   	   	   > hello.htm 찿기 
+   	   	   > 해당하는 Controller 실행 
+   	   	   > ModelAndView 생성 
+   	   	   > ViewResolver 통해서 View 구성
+   	   	   > 구성된 View 에서 display 작업
+   	   	   > Client 에게 전달  
+   
+   
+ :요청
+ >http://localhost:8090/SpringMVC_Basic01_Controller/intro.htm  
+   
+   
+      
+      
+		
+	
+	
+	
+	
+	

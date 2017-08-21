@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<!-- 
+		BookClient bookclient=new BookClient();
+		Properties prop=new Properties();
+		prop.setProperty("server", "192.168.0.126");
+		prop.setProperty("ConnectionTimeOut", "2000");
+		bookclient.setConfig(prop);
+		
+		bookclient.connect();
+	 -->
+	 
+	<bean id="bookClient" class="DI_10_Spring.BookClient">	
+		<property name="config">
+			<props>
+				<prop key="server">192.168.0.126</prop>
+				<prop key="ConnectionTimeOut">2000</prop>
+			</props>
+		</property>
+	</bean>
+	 
+</beans>

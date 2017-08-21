@@ -1,0 +1,4 @@
+구조를 복잡하게 콜렉션으로 간다
+인터페이스 MyFilter
+구현클래스 Enc..., Header..., Zip...
+사용클래스 ProtocolHandler 의존 MyFilter

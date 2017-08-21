@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+                           http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/context 
+                           http://www.springframework.org/schema/context/spring-context.xsd">
+
+		
+<bean id="output" class="Q2.StringOutput"></bean>
+<bean id="logPrintAroundAdvice" class="Q2.LogPrintAroundAdvice"></bean>
+<bean id="proxy" class="org.springframework.aop.framework.ProxyFactoryBean">
+	<property name="proxyInterfaces">
+		<list>
+			<value>Q2.Output</value>
+		</list>
+	</property>
+	<property name="target" ref="output"></property>
+	<property name="interceptorNames">
+		<list>
+			<value>logPrintAroundAdvice</value>
+		</list>
+	</property>
+</bean>
+
+
+</beans> 

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<!--
+		MessageBeanImpl messagebean=new MessageBeanImpl("kglim");
+		messagebean.setGreeting("hello"); 
+	 -->
+	<!-- 
+		id: 한개의 고유한 값
+		name: 여러 개의 이름 설정 가능
+		구분자: , 공백 ;
+	 -->
+	<bean id="messagebean" name="m1, m2 m3;m4" class="DI_04_Spring.MessageBeanImpl">
+		<!-- <constructor-arg>
+			<value>kglim</value>
+		</constructor-arg> 이거도 가능-->
+		<constructor-arg value="kglim" />
+		<property name="greeting"><!-- name은 setter가 구현된 변수명 -->
+			<value>hello</value>
+		</property>
+		
+	</bean>
+</beans>

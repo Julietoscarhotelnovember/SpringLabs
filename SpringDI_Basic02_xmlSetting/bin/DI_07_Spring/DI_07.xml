@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<!-- 
+		ArrayList<MyFilter> arraylist=new ArrayList<MyFilter>();
+		arraylist.add(new ZipFilter());
+		arraylist.add(new HeaderFilter());
+		arraylist.add(new EncFilter());
+		
+		ProtocolHandler ph=new ProtocolHandler();
+		ph.setFilters(arraylist);
+	 -->
+	 <!-- 1단계 방법
+	 <bean id="protocolHandler" class="DI_07_Spring.ProtocolHandler">
+	 	문제점: setter에 주입되는 자원이 컬렉션 > 스프링에서 아예 <list>제공
+	 	자바에서 지원되는 것들은 스프링에서 제공됨
+	 	스프링에서는 bean 먼저 생성하고, 주입은 나중에 이루어진다
+	 	<property name="filters">
+	 		<list>new ArrayList
+	 			<ref bean="zipFilter" />
+	 			<ref bean="headerFilter" />
+	 			<ref bean="encFilter" />
+	 		</list>
+	 	</property>
+	 </bean>
+	 <bean id="zipFilter" class="DI_07_Spring.ZipFilter"></bean>
+	 <bean id="headerFilter" class="DI_07_Spring.HeaderFilter"></bean>
+	 <bean id="encFilter" class="DI_07_Spring.EncFilter"></bean>
+	 1단계 방법 -->
+	 
+	 <!-- 2단계 방법 -->
+	 <bean id="protocolHandler" class="DI_07_Spring.ProtocolHandler">
+	 	<property name="filters">
+	 		<list>
+	 			<bean class="DI_07_Spring.ZipFilter"></bean>
+	 			<bean class="DI_07_Spring.HeaderFilter"></bean>
+	 			<bean class="DI_07_Spring.EncFilter"></bean>
+	 		</list>
+	 	</property>
+	 </bean>
+	 
+	 
+</beans>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>SpringMVC Annotation 연습</title>
+</head>
+<body>
+	<h3>test1 기본</h3>
+	<a href="hello.do">hello.do</a>
+	<hr>
+	
+	<h3>test2 http전송(form에서 get, post)</h3>
+	게시판 [목록페이지]에서 글쓰기 버튼 클릭 
+	<a href="article/newArticle.do">글쓰기(newArticle.do)</a>
+	
+	<h3>Test_3(Http 전송 : Form > GET, POST)(List 컬렉션 다루기)</h3>
+	<a href="order/order.do">주문내역(order.do)</a>
+	
+	<h3>Test_4(Http 전송 : 파라미터 다루기 @RequestParam > </h3>
+	<a href="search/internal.do?query=kglim&p=100">internal.do</a><br>
+	default <a href="search/external.do?query=kglim">external.do</a><br>
+	default2 <a href="search/external.do?p=100">external.do</a><br>
+	required <a href="search/external.do">external.do</a><br>
+	파라미터 이름 <a href="search/external.do?query=kglim&p=50">external.do</a>
+	
+	<h3>Test_5(스프링 쿠키 이용하기: @Cookievalue)</h3>
+	<a href="cookie/make.do">make.do(쿠키만들기)</a><br>
+	<a href="cookie/view.do">view.do(쿠키읽기)</a><br>
+	
+	<h3>Test_6 @ModelAttribute</h3>
+	<a href="search/main.do">main.do</a>
+	
+	<h3>Test_7 파일 업로드 (CommonsMultipartResolver)</h3>
+	<a href="image/upload.do">upload.do</a>
+	
+</body>
+</html>

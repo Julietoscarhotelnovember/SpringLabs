@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+                           http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/context 
+                           http://www.springframework.org/schema/context/spring-context.xsd">
+
+<context:annotation-config></context:annotation-config>
+
+<!-- 대문 -->
+<bean id="indexController" class="ncontroller.IndexController"></bean>
+
+<!-- 공지게시판 -->
+<bean id="noticeController" class="controllers.customer.NoticeController"></bean>
+
+<!-- 게시판 목록보기 -->
+<bean id="newNoticeDao" class="dao.NewNoticeDao"></bean>
+<bean id="customerController" class="ncontroller.CustomerController"></bean>
+
+<!-- 파일 업로드 -->
+<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+	<property name="maxUploadSize" value="10485760"></property>
+</bean>
+
+</beans> 

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+                           http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/context 
+                           http://www.springframework.org/schema/context/spring-context.xsd">
+
+<context:annotation-config></context:annotation-config>
+
+ 	<bean id="ham" class="Q2.Ham">
+ 		<property name="name">
+ 			<value>햄버거</value>
+ 		</property>
+ 		<property name="price">
+ 			<value type="int">7000</value>
+ 		</property>
+ 	</bean>
+ 	<bean id="pizza" class="Q2.Pizza">
+ 		<property name="name">
+ 			<value>피자</value>
+ 		</property>
+ 		<property name="price">
+ 			<value type="int">20000</value>
+ 		</property>
+ 	</bean>
+ 	<bean id="market" class="Q2.Market"></bean>
+
+</beans>

@@ -1,0 +1,33 @@
+1.SpringMVC web site 생성
+2.필요한 jar파일 참조(web, springmvc)
+3.web.xml
+	-<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+	-<url-pattern>*.htm</url-pattern>
+4.DispatcherServlet을 통한 Handler-Mapping 작업
+	-DispatcherServlet을 사용하는 DI작업 > [서블릿이름]-servlet
+5.[서블릿이름]-servlet.xml
+	-안에서 bean 생성
+	-bean injection
+6.springmvc
+	-model(dto, vo, domain)
+	-view(jsp > el, jstl)
+	-Controller(기본적으로 org.springframework.web.servlet.mvc.Controller 구현)
+	-public ModelAndView handleRequest 강제 구현
+	-단점: 클래스 안의 함수 하나가 요청 하나 처리 > 이를 극복하기 위해 springmvc annotation 사용
+7.springmvc annotation
+	-handler mapping이 함수 단위로 
+	-@Controller
+		@ReqeustMapping(/list.do)
+		listBoard()
+		@ReqeustMapping(/listDetail.do)
+		listDetail()
+		@ReqeustMapping(/boardWrite.do)
+		boardWrite()
+8.실습 기본 구성
+	-com.controller 등등 패키지
+	-WEB-INF > view 폴더 생성
+	-기본 파일 WebContent > index.html
+		
+		
+		
+		

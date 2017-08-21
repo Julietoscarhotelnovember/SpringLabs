@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+                           http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/context 
+                           http://www.springframework.org/schema/context/spring-context.xsd">
+
+		
+<bean id="calc" class="AOP_Spring_07.NewCalc"></bean>
+
+<bean id="logPrintAroundAdvice" class="AOP_Spring_07.LogPrintAroundAdvice"></bean>
+<bean id="logPrintBeforeAdvice" class="AOP_Spring_07.LogPrintBeforeAdvice"></bean>
+<bean id="logPrintAfterAdvice" class="AOP_Spring_07.LogPrintAfterAdvice"></bean>
+<!-- 
+	joinpoint > pointcut 개념을 사용해 객체가 가지는 특정 함수만 제한적으로 보조관심사를 적용하는 경우
+	기존에는 NewCalc 객체에 통채로 걸어놨었음
+	
+	1.정규표현식을 통해 적용
+	import org.springframework.aop.support.RegexpMethodPointcutAdvisor;
+	import org.springframework.aop.framework.ProxyFactoryBean;
+ -->
+ 
+<!-- 1단계 -->
+<bean id="regexpMethodPointcutAdvisor" class="org.springframework.aop.support.RegexpMethodPointcutAdvisor">
+	<property name="patterns">
+		<list>
+			<value>.*AD.*</value>
+			<value>.*MU.*</value>
+		</list>
+	</property>
+	<property name="advice" ref="logPrintAroundAdvice"></property>
+</bean>
+
+<!-- 2단계 -->
+<bean id="proxy" class="org.springframework.aop.framework.ProxyFactoryBean">
+	<property name="proxyInterfaces">
+		<list>
+			<value>AOP_Spring_07.Calc</value><!-- 인터페이스는 bean으로 못만들어서 이렇게 -->
+		</list>
+	</property>
+	<property name="target" ref="calc"></property>
+	<property name="interceptorNames">
+		<list>
+			<!-- <value>logPrintAroundAdvice</value>
+			<value>logPrintBeforeAdvice</value>
+			<value>logPrintAfterAdvice</value> -->
+			<value>regexpMethodPointcutAdvisor</value>
+		</list>
+	</property>
+</bean>
+
+
+</beans> 

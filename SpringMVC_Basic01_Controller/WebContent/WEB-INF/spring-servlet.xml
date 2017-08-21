@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+                           http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/context 
+                           http://www.springframework.org/schema/context/spring-context.xsd">
+
+<!--
+	기존 식별자 id="m1", name="m1, m2"가
+	SpringMVC에서는 mapping 주소로 바뀜
+ -->
+
+<bean name="/hello.htm" class="kr.or.kosta.HelloController"></bean>
+<bean name="/intro.htm" class="kr.or.kosta.IntroController"></bean>
+
+<!-- ViewResolver 구현: view에 대한 설정담당 클래스 -->
+<bean id="internalResourceViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+	<property name="prefix">
+		<value>/WEB-INF/view/</value>
+	</property>
+	<property name="suffix">
+		<value>.jsp</value>
+	</property>
+</bean>
+<!-- 
+	HelloController에서
+	ModelAndView mav=new ModelAndView();
+	mav.addObject("name","kglim");
+	mav.setViewName("hello");
+	
+	view이름: hello > ViewResolver 동작
+	>prefix + hello + suffix 조합
+	>/WEB-INF/view/hello.jsp
+ -->
+
+</beans> 

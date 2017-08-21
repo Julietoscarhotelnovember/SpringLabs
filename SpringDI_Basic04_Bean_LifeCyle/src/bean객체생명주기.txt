@@ -1,0 +1,13 @@
+[IOC컨테이너]
+1.컨테이너 초기화(context=new Generic...(xml))
+2.컨테이너 안에 bean 생성(xml)
+	-객체 생성(<bean id="" class="">)
+	-의존 결정(주입: 생성자, 세터)
+	-초기화(객체가 특정메서드를 구현했다면 호출)
+		> implements InitializingBean
+		> public void afterPropertiesSet() throws Exception
+	-컨테이너 안에 bean 생성(getbean())
+3.컨테이너 종료(context.close())
+	-소멸(객체가 특정메서드를 구현했다면 호출)
+		> implements DisposableBean
+		> public void destroy() throws Exception

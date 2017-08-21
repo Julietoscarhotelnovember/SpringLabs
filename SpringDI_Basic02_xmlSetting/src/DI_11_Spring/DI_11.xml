@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+                           http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/context 
+                           http://www.springframework.org/schema/context/spring-context.xsd">
+	
+<!--
+	1.DataSourceFactory 빈 객체 생성
+	2.DI_11.xml에서 jdbc.properties read해서
+	SataScourceFactory setter에 주입
+	
+	추가 이유
+	>namespace 추가
+	>xmlns:context="http://www.springframework.org/schema/context"
+	>JNDI(파일기반 데이터찾기)를 사용하기 위해
+ -->
+	<context:property-placeholder location="classpath:DI_11_Spring/jdbc.properties" />
+	<bean id="dataSourceFactory" class="DI_11_Spring.DatasourceFactory">
+		<property name="jdbcDriver" value="${jdbc.driver}"></property>
+		<property name="jdbcUrl" value="${jdbc.url}"></property>
+		<property name="username" value="${jdbc.username}"></property>
+		<property name="password" value="${jdbc.password}"></property>
+	</bean> 
+</beans>

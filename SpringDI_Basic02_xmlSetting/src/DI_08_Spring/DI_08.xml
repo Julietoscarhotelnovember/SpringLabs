@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<!-- 
+		JobExecute jobexcute=new JobExecute("kglim", 100);
+		ArticleDao articledao=new ArticleDao();
+		jobexcute.setArticledao(articledao);
+		jobexcute.setData(500);
+	 -->
+	 
+	<bean id="jobExecute" class="DI_08_Spring.JobExecute">
+		<constructor-arg>
+			<value>kglim</value>
+		</constructor-arg>
+		<constructor-arg>
+			<value type="int">10</value><!-- 무조껀 Stirng, 타입 속성을 통해서 바꿀수 있다-->
+		</constructor-arg>
+		
+		<property name="articledao">
+			<ref bean="articleDao" />
+		</property>
+		<property name="data">
+			<value>500</value>
+		</property>
+	</bean>
+		
+	<bean id="articleDao" class="DI_08_Spring.ArticleDao"></bean>
+	 
+</beans>

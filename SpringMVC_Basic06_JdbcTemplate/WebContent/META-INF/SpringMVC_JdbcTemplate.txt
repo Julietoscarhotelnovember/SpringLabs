@@ -1,0 +1,66 @@
+1.테이블 생성
+create table usermember(
+	id varchar2(20),
+	name varchar2(20),
+	pwd varchar2(20),
+	email varchar2(20),
+	age number
+);
+
+2.계정
+springuser
+
+3.model(vo, dto, domain: dao)
+view: jsp
+controller: 컨트롤러 클래스
+
+4.view: WEB-INF > view > board > board.jsp
+
+5.스프링mvc jar
+기본: core, beans, expression, aop, context, ...
+웹: web, webmvc
+의존: loging, ...
+jsp: jstl
+db: ojdbc6.jar
+spring jdbc: spring-jdbc, spring-tx
+
+6.공통빈 설정(db작업, jdbc설정코드)
+<listener>
+	<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+</listener>
+<context-param>
+	<param-name>contextConfigLocation</param-name><!-- 정해진 값 -->
+	<param-value>
+		/WEB-INF/applicationContext.xml
+	</param-value>
+</context-param>
+
+참고: 디스패처가 사용하는 ioc 컨테이너 여러 개로 설정하기
+<servlet>
+	<servlet-name>dispatcher</servlet-name>
+	<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+	<init-param>
+		<param-name>ContextConfigLocation</param-name>
+		<param-value>
+			classpath:/WEB-INF/base1.xml
+			classpath:/WEB-INF/base2.xml
+		</param-value>
+	</init-param>
+</servlet>
+
+7.dispatcher 설정(일반 빈 설정, 주입)
+
+8.filter 설정
+
+9.공통빈(applicationContext.xml)에서
+--db연동
+--기존 jdbc api(Connection, Statement, preparestatement, resultset)
+--스프링에서 대체
+org.springframework.jdbc.datasource.DriverManagerDataSource
+org.springframework.jdbc.core.jdbcTemplate
+
+10. view단 작업(레이아웃 구성)
+
+
+
+

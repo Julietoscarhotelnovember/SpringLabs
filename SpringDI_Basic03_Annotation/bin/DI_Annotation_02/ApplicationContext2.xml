@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+                           http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/context 
+                           http://www.springframework.org/schema/context/spring-context.xsd">
+
+ 
+	<context:annotation-config></context:annotation-config>
+
+ 	<bean id="viewer" class="DI_Annotation_02.MonitorViewer"></bean>
+ 	<bean id="recorder1" class="DI_Annotation_02.Recorder">
+ 	<!-- 해결방법 1.주입하는 곳의 파라미터 이름을 recorder1 -->
+ 	<!-- 해결방법 2.아래와 같은 qualifier -->
+ 	<!-- 해결방법 3.삭제하고 하나만 남김 -->
+ 		<qualifier value="coder"></qualifier>
+ 	</bean>
+ 	<bean id="recorder2" class="DI_Annotation_02.Recorder">
+ 		<qualifier value="coder2"></qualifier>
+ 	</bean>
+
+</beans>

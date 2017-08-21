@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+                           http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/context 
+                           http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<context:annotation-config></context:annotation-config>
+	<!-- 
+		사용자가 만든 임의 함수(Client2_init(), Client2_close())를
+		객체 초기화, 객체 소멸자로 
+	-->
+		<bean id="client2" class="spring.Client2"
+		init-method="Client2_init"
+		destroy-method="Client2_close">
+			<constructor-arg>
+				<value>192.168.0.115</value>
+			</constructor-arg>
+			<property name="host">
+				<value>192.168.1.1</value>
+			</property>
+		</bean>
+</beans>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+                           http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/context 
+                           http://www.springframework.org/schema/context/spring-context.xsd">
+
+ 
+	<context:annotation-config></context:annotation-config>
+
+ 	<bean id="viewer" class="DI_Annotation_03.MonitorViewer"></bean>
+ 	<bean id="a" class="DI_Annotation_03.Recorder"></bean>
+ 	<bean id="b" class="DI_Annotation_03.Recorder"></bean>
+ 	<bean id="c" class="DI_Annotation_03.Recorder"></bean>
+ 	<bean id="d" class="DI_Annotation_03.Recorder"></bean>
+ 	<bean id="e" class="DI_Annotation_03.Recorder"></bean>
+ 	<bean id="xxxx" class="DI_Annotation_03.Recorder"></bean>
+ 	<!-- 같은 타입의 bean을 사용하는 경우 파라미터 이름을 맞추는 것이 제일 깔끔하다 -->
+
+</beans>
